@@ -18,13 +18,15 @@ node {
          //step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
      //  }   
    }  
-   
-   stage('Deploy approval'){
-    input "Deploy to prod?"
-   }
 
-   node {
-    stage('deploy to prod'){
-        echo "deploying"
-    }
+}  
+   
+stage('Deploy approval'){
+      input "Deploy to prod?"
 }
+
+node {
+       stage('deploy to prod'){
+        echo "deploying"
+       }
+ }
