@@ -10,7 +10,7 @@ node {
    
    // Mark the code build 'stage'....
    stage 'Build' {
-   def mvnHome = tool 'M3'
+   def mvnHome = tool 'maven-3.0.3'
    // Run the maven build
    sh "${mvnHome}/bin/mvn -Dmaven.test.failure.ignore clean package"
    step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
